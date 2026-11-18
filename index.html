@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenLight — Student Carpooling at William &amp; Mary</title>
+  <meta name="description" content="GreenLight connects William &amp; Mary students who are already driving somewhere with students who need a ride. Share the trip, split the gas.">
+  <meta name="theme-color" content="#1D3B2A">
+  <meta property="og:title" content="GreenLight — Share the ride. Split the gas.">
+  <meta property="og:description" content="Student carpooling for William &amp; Mary: grocery runs, airport drop-offs, hometown trips and campus commutes.">
+  <meta property="og:image" content="assets/img/logo-wide.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/wordmark.webp" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Floating nav ===== -->
+  <header class="nav" id="top">
+    <div class="nav__pill">
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <span class="nav__burger" aria-hidden="true"><span></span><span></span></span>
+        <span>Menu</span>
+      </button>
+      <a class="nav__logo" href="#top" aria-label="GreenLight home">
+        <img src="assets/img/car.webp" alt="" width="56" height="48">
+      </a>
+      <a class="nav__cta" href="#rides">
+        <span>Find a ride</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 12h15m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <div class="menu" id="menu" hidden>
+    <div class="menu__bg" aria-hidden="true"></div>
+    <button class="menu__close" type="button" aria-label="Close menu" data-menu-close>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="32" height="32"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="menu__nav" aria-label="Main">
+      <p class="script menu__eyebrow">Let's go</p>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#map">Route map</a></li>
+        <li><a href="#rides">Ride board</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">About us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/video/hero-mobile.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <svg class="hero__route" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+        <path class="hero__route-path" d="M-20 640 C 120 600, 160 520, 300 540 S 520 600, 640 520 S 860 470, 980 500 S 1180 420, 1240 300 S 1360 120, 1460 140" />
+      </svg>
+
+      <div class="hero__inner">
+        <p class="hero__est">Est. 2026 · Williamsburg, Virginia</p>
+        <h1 id="hero-title" class="hero__title">
+          <img class="hero__wordmark" src="assets/img/wordmark.webp" width="1400" height="1041" alt="GreenLight">
+        </h1>
+        <p class="hero__tagline">
+          <span class="hero__phrase"><span class="display">Share</span> <span class="script">the Ride</span></span>
+          <span class="hero__phrase"><span class="display">Split</span> <span class="script">the Gas</span></span>
+        </p>
+        <p class="hero__sub">Student carpooling<br>for William &amp; Mary</p>
+        <div class="hero__actions">
+          <a class="btn btn--sun btn--ring" href="#rides">Find a ride</a>
+          <a class="hero__link" href="#rides" data-open-offer>or offer one</a>
+        </div>
+      </div>
+
+      <button class="hero__pause" type="button" aria-pressed="false" data-video-toggle>
+        <svg class="i-pause" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="i-play" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
+        <span class="hero__pause-label">Pause <span class="script">video</span></span>
+      </button>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-label="Grocery runs, airport drop-offs, hometown trips, campus commutes">
+      <div class="marquee__track" aria-hidden="true">
+        <span>Grocery runs</span><i></i><span>Airport drop-offs</span><i></i><span>Hometown trips</span><i></i><span>Campus commutes</span><i></i>
+        <span>Grocery runs</span><i></i><span>Airport drop-offs</span><i></i><span>Hometown trips</span><i></i><span>Campus commutes</span><i></i>
+      </div>
+    </div>
+
+    <!-- ===== Intro ===== -->
+    <section class="intro section" aria-labelledby="intro-title">
+      <div class="container intro__grid">
+        <div class="reveal">
+          <p class="eyebrow">Why GreenLight</p>
+          <h2 id="intro-title" class="h-display">You're already driving there. <span class="script">Bring a friend.</span></h2>
+          <p class="lead">GreenLight matches W&amp;M students who have a car and a plan with students who need a lift going the same way. Drivers post the trips they're already taking. Riders grab an open seat and chip in for gas. No detours, no surge pricing, no awkward group-chat begging.</p>
+        </div>
+        <ul class="values reveal" role="list">
+          <li class="value">
+            <span class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 22V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M3 22h11M14 10h2.5a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 0 3 0V8.5L18 6M6 8h5"/></svg></span>
+            <div><h3>Drivers cover gas</h3><p>Every seat you fill puts money back in your tank for a trip you were taking anyway.</p></div>
+          </li>
+          <li class="value">
+            <span class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.4-.9-1.4-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1.1 0-2.1-.6-2.5-1.5M12 6.5V8m0 8v1.5"/></svg></span>
+            <div><h3>Riders save big</h3><p>Split the real cost of gas instead of paying ride-hail prices to the airport or back home.</p></div>
+          </li>
+          <li class="value">
+            <span class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+            <div><h3>Tribe only</h3><p>Every driver and rider signs up with a verified @wm.edu email, so you're riding with classmates.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="how section" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title" class="h-display">Three steps <span class="script">to the road</span></h2>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Choose your role">
+          <button class="tab" role="tab" id="tab-rider" aria-selected="true" aria-controls="panel-rider">I need a ride</button>
+          <button class="tab" role="tab" id="tab-driver" aria-selected="false" aria-controls="panel-driver" tabindex="-1">I'm driving</button>
+        </div>
+
+        <div class="how__layout">
+          <div>
+            <ol class="steps" role="tabpanel" id="panel-rider" aria-labelledby="tab-rider">
+              <li class="step">
+                <span class="step__num">01</span>
+                <h3>Browse the board</h3>
+                <p>Filter by grocery runs, airport trips, hometowns or campus commutes, and see exactly when each car leaves and where it picks up.</p>
+              </li>
+              <li class="step">
+                <span class="step__num">02</span>
+                <h3>Request a seat</h3>
+                <p>Pick a trip, send a quick note, and the driver confirms. You'll see the chip-in amount before you commit, so there are no surprises.</p>
+              </li>
+              <li class="step">
+                <span class="step__num">03</span>
+                <h3>Ride &amp; chip in</h3>
+                <p>Meet at the pickup spot, enjoy the ride, and cover your share of the gas. Rate the trip so the community stays great.</p>
+              </li>
+            </ol>
+            <ol class="steps" role="tabpanel" id="panel-driver" aria-labelledby="tab-driver" hidden>
+              <li class="step">
+                <span class="step__num">01</span>
+                <h3>Post your trip</h3>
+                <p>Already heading to Richmond Airport or home for break? Add the date, time, pickup and drop-off spots, and how many seats are open.</p>
+              </li>
+              <li class="step">
+                <span class="step__num">02</span>
+                <h3>Approve riders</h3>
+                <p>Fellow students request seats. You see who they are and approve who rides with you. Your car, your call.</p>
+              </li>
+              <li class="step">
+                <span class="step__num">03</span>
+                <h3>Get gas money</h3>
+                <p>Riders chip in toward fuel for the trip you were already taking. Fuller car, emptier tank bill, smaller footprint.</p>
+              </li>
+            </ol>
+          </div>
+          <figure class="how__photo reveal">
+            <img src="assets/img/road-laughs.webp" width="1200" height="630" loading="lazy" alt="Three friends laughing together on a drive, the driver smiling at the wheel">
+            <figcaption class="sticker"><span class="script">same trip,</span> fuller car</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Destinations ===== -->
+    <section class="dest" id="destinations" aria-labelledby="dest-title">
+      <div class="dest__bg" aria-hidden="true"></div>
+      <div class="container dest__inner">
+        <h2 id="dest-title" class="script dest__title">Destinations</h2>
+        <div class="dest__layout">
+          <ul class="dest__list" role="list">
+            <li><button class="dest__item" type="button" data-dest="grocery" aria-pressed="true">Grocery Runs</button></li>
+            <li><button class="dest__item" type="button" data-dest="airport" aria-pressed="false">The Airport</button></li>
+            <li><button class="dest__item" type="button" data-dest="hometown" aria-pressed="false">Hometowns</button></li>
+            <li><button class="dest__item" type="button" data-dest="campus" aria-pressed="false">Campus Commute</button></li>
+          </ul>
+          <article class="dest__card" aria-live="polite">
+            <img class="dest__img" src="assets/img/backseat-smiles.webp" width="1200" height="630" loading="lazy" alt="">
+            <div class="dest__body">
+              <p class="eyebrow dest__eyebrow">Weekly</p>
+              <h3 class="dest__name">Grocery Runs</h3>
+              <p class="dest__copy">No car, no problem. Hop in with someone already heading down Richmond Road or Monticello Ave for the weekly stock-up.</p>
+              <dl class="dest__meta">
+                <div><dt>Typical trip</dt><dd class="dest__trip">5–15 min</dd></div>
+                <div><dt>Suggested chip-in</dt><dd class="dest__price">$5 / seat</dd></div>
+              </dl>
+              <a class="btn btn--sun btn--sm dest__cta" href="#rides" data-filter-link="grocery">See grocery rides</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Route map ===== -->
+    <section class="map section" id="map" aria-labelledby="map-title">
+      <div class="container">
+        <div class="map__head reveal">
+          <div>
+            <p class="eyebrow">Route map</p>
+            <h2 id="map-title" class="h-display">All roads start <span class="script">in the 'Burg</span></h2>
+          </div>
+          <p class="map__counter" aria-live="polite"><span class="map__num"><span class="map__count">0</span>/<span class="map__total">7</span></span><small>routes explored</small></p>
+        </div>
+
+        <div class="map__frame reveal">
+          <svg class="map__svg" viewBox="0 0 1000 620" role="group" aria-label="Stylized map of popular GreenLight routes from Williamsburg">
+            <defs>
+              <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" class="map__dot"/></pattern>
+            </defs>
+            <rect width="1000" height="620" class="map__land"/>
+            <rect width="1000" height="620" fill="url(#dots)"/>
+            <!-- stylized water: Chesapeake Bay + Atlantic -->
+            <path class="map__water" d="M760 0 C 740 80, 770 150, 735 220 S 700 330, 730 380 S 800 430, 820 470 L 1000 470 L 1000 0 Z"/>
+            <path class="map__water" d="M820 470 C 860 520, 900 560, 1000 560 L 1000 470 Z"/>
+            <!-- rivers -->
+            <path class="map__river" d="M180 300 C 300 290, 380 330, 470 340 S 600 380, 660 400 S 720 410, 760 420"/>
+            <path class="map__river" d="M300 180 C 420 200, 520 240, 600 280 S 690 320, 735 330"/>
+            <text class="map__label-water" x="868" y="250">Chesapeake</text>
+            <text class="map__label-water" x="890" y="275">Bay</text>
+            <text class="map__label-river" x="390" y="355">James River</text>
+            <text class="map__label-river" x="470" y="248">York River</text>
+
+            <!-- routes (drawn from hub) -->
+            <g class="map__routes">
+              <path data-route="ric" d="M640 360 C 590 320, 520 300, 455 290"/>
+              <path data-route="nova" d="M640 360 C 600 260, 520 160, 470 70"/>
+              <path data-route="cville" d="M640 360 C 540 330, 380 300, 215 250"/>
+              <path data-route="phf" d="M640 360 C 665 380, 690 395, 712 418"/>
+              <path data-route="orf" d="M640 360 C 690 410, 740 450, 790 490"/>
+              <path data-route="vb" d="M640 360 C 720 430, 820 500, 880 530"/>
+              <path data-route="grocery" d="M640 360 C 628 385, 612 405, 595 425"/>
+            </g>
+
+            <!-- hub -->
+            <g class="map__hub">
+              <circle cx="640" cy="360" r="20"/>
+              <circle cx="640" cy="360" r="8"/>
+              <text class="map__hub-sub" x="640" y="310" text-anchor="middle">W&amp;M campus</text>
+              <text x="640" y="330" text-anchor="middle">Williamsburg</text>
+            </g>
+          </svg>
+
+          <!-- pins (HTML so they're real buttons) -->
+          <div class="map__pins">
+            <button class="pin" type="button" style="--x:45.5%;--y:46.8%" data-pin="ric"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Richmond · RIC</span></button>
+            <button class="pin" type="button" style="--x:47%;--y:11.3%" data-pin="nova"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">NoVA &amp; D.C.</span></button>
+            <button class="pin" type="button" style="--x:21.5%;--y:40.3%" data-pin="cville"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Charlottesville</span></button>
+            <button class="pin" type="button" style="--x:71.2%;--y:67.4%" data-pin="phf"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Newport News · PHF</span></button>
+            <button class="pin" type="button" style="--x:79%;--y:79%" data-pin="orf"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Norfolk · ORF</span></button>
+            <button class="pin" type="button" style="--x:88%;--y:85.5%" data-pin="vb"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Virginia Beach</span></button>
+            <button class="pin pin--small" type="button" style="--x:59.5%;--y:68.5%" data-pin="grocery"><span class="pin__head" aria-hidden="true"></span><span class="pin__label">Grocery stores</span></button>
+          </div>
+
+          <aside class="map__card" aria-live="polite">
+            <img src="assets/img/fall-road.webp" width="1200" height="800" loading="lazy" alt="">
+            <div>
+              <h3 class="map__card-title">Pick a pin</h3>
+              <p class="map__card-copy"><strong>Tap</strong> any pin to see how far it is from campus and what a fair gas chip-in looks like.</p>
+            </div>
+          </aside>
+        </div>
+        <p class="map__note">Map is illustrative, not to scale. Distances and drive times are approximate; chip-ins follow our guide of about $10 per hour of driving, $5 minimum.</p>
+      </div>
+    </section>
+
+    <!-- ===== Ride board ===== -->
+    <section class="board section" id="rides" aria-labelledby="board-title">
+      <div class="container">
+        <div class="board__head">
+          <div>
+            <p class="eyebrow">The ride board</p>
+            <h2 id="board-title" class="h-display">Open seats, <span class="script">leaving soon</span></h2>
+          </div>
+          <button class="btn btn--forest" type="button" data-open-offer>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Offer a ride
+          </button>
+        </div>
+
+        <div class="filters" role="search">
+          <div class="chips" role="group" aria-label="Trip type">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All trips</button>
+            <button class="chip" type="button" data-filter="grocery" aria-pressed="false">Groceries</button>
+            <button class="chip" type="button" data-filter="airport" aria-pressed="false">Airport</button>
+            <button class="chip" type="button" data-filter="hometown" aria-pressed="false">Hometowns</button>
+            <button class="chip" type="button" data-filter="campus" aria-pressed="false">Campus</button>
+          </div>
+          <div class="filters__fields">
+            <label class="field field--inline">
+              <span class="field__label">Search</span>
+              <input type="search" id="ride-search" placeholder="Destination, pickup, driver…" autocomplete="off">
+            </label>
+            <label class="field field--inline">
+              <span class="field__label">When</span>
+              <select id="ride-when">
+                <option value="any">Any time</option>
+                <option value="3">Next 3 days</option>
+                <option value="7">This week</option>
+                <option value="weekend">This weekend</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <p class="board__count" aria-live="polite"></p>
+        <ul class="rides" role="list"></ul>
+        <div class="empty" hidden>
+          <img src="assets/img/car.webp" width="120" height="104" alt="">
+          <h3>No rides match yet</h3>
+          <p>Try another filter, or be the first to post this trip.</p>
+          <button class="btn btn--forest btn--sm" type="button" data-open-offer>Offer a ride</button>
+        </div>
+        <p class="board__demo">Demo board: rides and requests are saved only in this browser. <button class="linkish" type="button" data-reset-demo>Reset demo data</button></p>
+      </div>
+    </section>
+
+    <!-- ===== Safety ===== -->
+    <section class="safety section" id="safety" aria-labelledby="safety-title">
+      <div class="container safety__grid">
+        <figure class="safety__photo reveal">
+          <img src="assets/img/friends-window.webp" width="1200" height="630" loading="lazy" alt="Three students smiling from the windows of a car, the driver at the wheel">
+          <img class="safety__photo-sm" src="assets/img/campus.webp" width="764" height="401" loading="lazy" alt="Aerial view of a brick campus building surrounded by fall trees">
+        </figure>
+        <div class="reveal">
+          <p class="eyebrow">Safety &amp; trust</p>
+          <h2 id="safety-title" class="h-display">Ride with people <span class="script">you know</span></h2>
+          <ul class="checks" role="list">
+            <li>
+              <span class="checks__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <div><h3>Verified @wm.edu only</h3><p>Every account is tied to a William &amp; Mary email. No strangers from the internet.</p></div>
+            </li>
+            <li>
+              <span class="checks__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
+              <div><h3>Profiles &amp; ratings</h3><p>See class year, ride history and reviews before you request or approve a seat.</p></div>
+            </li>
+            <li>
+              <span class="checks__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+              <div><h3>Share your trip</h3><p>Send your ride details, driver and car to a friend or roommate with one tap.</p></div>
+            </li>
+            <li>
+              <span class="checks__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/></svg></span>
+              <div><h3>Chip-ins agreed up front</h3><p>The chip-in is posted with the ride. What you see is what you pay, with no surprise fees.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq__grid">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title" class="h-display">Good <span class="script">questions</span></h2>
+          <p class="lead">Can't find your answer? Email us at <a href="mailto:hello@greenlight.example">hello@greenlight.example</a>.</p>
+        </div>
+        <div class="faq__list reveal">
+          <details>
+            <summary>Is GreenLight a taxi or ride-hail service?</summary>
+            <p>Nope. Drivers only post trips they were already planning to take. Riders chip in to share the cost of gas. It's carpooling between classmates, not a for-hire service.</p>
+          </details>
+          <details>
+            <summary>Who can use GreenLight?</summary>
+            <p>Current William &amp; Mary students with a valid @wm.edu email. Drivers also confirm they have a valid license and insurance before posting rides.</p>
+          </details>
+          <details>
+            <summary>How much does a ride cost?</summary>
+            <p>Drivers set a per-seat chip-in using our guide: about $10 per hour of driving, with a $5 minimum. A campus commute or grocery run is $5, Richmond Airport is about $10, and a two-hour drive home is about $20. You'll always see the price before you request a seat.</p>
+          </details>
+          <details>
+            <summary>How do riders pay drivers?</summary>
+            <p>During the beta, riders pay drivers directly (for example, Venmo or cash) once the trip is done. In-app payments are on our roadmap.</p>
+          </details>
+          <details>
+            <summary>What if my plans change?</summary>
+            <p>Cancel your request or your ride as early as you can so others can grab the seat. Repeated last-minute cancellations will show up on your profile.</p>
+          </details>
+          <details>
+            <summary>Which airports do you cover?</summary>
+            <p>Wherever drivers are headed! The most common are Richmond (RIC), Newport News/Williamsburg (PHF) and Norfolk (ORF), plus D.C.-area airports around breaks.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About / Team ===== -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__intro reveal">
+          <img class="about__logo" src="assets/img/logo-stacked.webp" width="689" height="900" loading="lazy" alt="GreenLight logo: a smiling orange car with three passengers above the hand-lettered GreenLight wordmark">
+          <div>
+            <p class="eyebrow">About us</p>
+            <h2 id="about-title" class="h-display">Made by students, <span class="script">for students</span></h2>
+            <p class="lead">GreenLight started with a simple observation on William &amp; Mary's campus: every weekend, half-empty cars head to the same grocery stores, airports and hometowns while other students scramble for a ride. We're building the easiest way for the Tribe to fill those seats, save money and get where they're going together.</p>
+          </div>
+        </div>
+
+        <ul class="team" role="list">
+          <li class="member reveal">
+            <div class="member__avatar" aria-hidden="true">A</div>
+            <h3>Founder Name</h3>
+            <p class="member__role">Founder &amp; CEO · Class of '27</p>
+            <p>A short bio goes here: what you study, why you started GreenLight, your favorite road-trip snack.</p>
+          </li>
+          <li class="member reveal">
+            <div class="member__avatar" aria-hidden="true">B</div>
+            <h3>Team Member</h3>
+            <p class="member__role">Operations · Class of '27</p>
+            <p>A short bio goes here: what you study, what you do on the team, and your hometown.</p>
+          </li>
+          <li class="member reveal">
+            <div class="member__avatar" aria-hidden="true">C</div>
+            <h3>Team Member</h3>
+            <p class="member__role">Marketing · Class of '28</p>
+            <p>A short bio goes here: what you study, what you do on the team, and your go-to driving playlist.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="container final__inner">
+        <img class="final__car" src="assets/img/car.webp" width="600" height="519" loading="lazy" alt="">
+        <h2 id="final-title" class="final__title">Got somewhere to be? <span class="script">Get the green light.</span></h2>
+        <div class="final__actions">
+          <a class="btn btn--forest btn--lg" href="#rides">Find a ride</a>
+          <button class="btn btn--outline btn--lg" type="button" data-open-offer>Offer a ride</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <img class="footer__logo" src="assets/img/logo-wide.webp" width="879" height="352" loading="lazy" alt="GreenLight">
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#rides">Ride board</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+      </nav>
+      <p class="footer__fine">© <span data-year></span> GreenLight · Williamsburg, VA<br>An independent student venture. Not an official service of William &amp; Mary.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Offer-a-ride dialog ===== -->
+  <dialog class="dialog" id="offer-dialog" aria-labelledby="offer-title">
+    <form class="offer" id="offer-form" novalidate>
+      <div class="dialog__head">
+        <div>
+          <p class="eyebrow">For drivers</p>
+          <h2 id="offer-title" class="dialog__title">Offer a ride</h2>
+        </div>
+        <button class="dialog__x" type="button" aria-label="Close" data-close-dialog>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="error-summary" tabindex="-1" hidden>
+        <h3>Please fix the following:</h3>
+        <ul></ul>
+      </div>
+
+      <fieldset class="offer__group">
+        <legend>About you</legend>
+        <div class="grid-2">
+          <div class="field">
+            <label for="o-name">Your name <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-name" name="name" autocomplete="name" required>
+            <p class="field__error" id="o-name-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-year">Class year</label>
+            <select id="o-year" name="year">
+              <option>'26</option><option selected>'27</option><option>'28</option><option>'29</option><option>Grad</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="offer__group">
+        <legend>Trip type <span class="req" aria-hidden="true">*</span></legend>
+        <div class="radio-chips">
+          <label><input type="radio" name="type" value="grocery" required><span>Groceries</span></label>
+          <label><input type="radio" name="type" value="airport"><span>Airport</span></label>
+          <label><input type="radio" name="type" value="hometown"><span>Hometown</span></label>
+          <label><input type="radio" name="type" value="campus"><span>Campus</span></label>
+        </div>
+        <p class="field__error" id="o-type-err"></p>
+      </fieldset>
+
+      <fieldset class="offer__group">
+        <legend>Route</legend>
+        <div class="grid-2">
+          <div class="field">
+            <label for="o-from">From <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-from" name="from" value="W&amp;M campus" required>
+            <p class="field__error" id="o-from-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-to">To <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-to" name="to" placeholder="e.g. Richmond Airport (RIC)" required>
+            <p class="field__error" id="o-to-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-pickup">Pickup spot <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-pickup" name="pickup" placeholder="e.g. Sadler Center loop" required>
+            <p class="field__error" id="o-pickup-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-dropoff">Drop-off spot</label>
+            <input id="o-dropoff" name="dropoff" placeholder="e.g. Departures, Terminal">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="offer__group">
+        <legend>When &amp; seats</legend>
+        <div class="grid-3">
+          <div class="field">
+            <label for="o-date">Date <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-date" name="date" type="date" required>
+            <p class="field__error" id="o-date-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-time">Departure time <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-time" name="time" type="time" required>
+            <p class="field__error" id="o-time-err"></p>
+          </div>
+          <div class="field">
+            <label for="o-seats">Open seats</label>
+            <div class="stepper">
+              <button type="button" aria-label="Fewer seats" data-step="-1">−</button>
+              <input id="o-seats" name="seats" type="number" inputmode="numeric" min="1" max="7" value="3">
+              <button type="button" aria-label="More seats" data-step="1">+</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="offer__group">
+        <legend>Gas chip-in</legend>
+        <div class="grid-2">
+          <div class="field">
+            <label for="o-price">Per seat ($) <span class="req" aria-hidden="true">*</span></label>
+            <input id="o-price" name="price" type="number" inputmode="decimal" min="0" max="100" step="1" required aria-describedby="o-price-help">
+            <p class="field__help" id="o-price-help">Guide: about $10 per hour of driving, $5 minimum.</p>
+            <p class="field__error" id="o-price-err"></p>
+          </div>
+          <div class="field calc">
+            <label for="o-mins">Not sure? Drive time (minutes)</label>
+            <div class="calc__row">
+              <input id="o-mins" type="number" inputmode="numeric" min="1" max="720" placeholder="e.g. 60">
+              <button class="btn btn--sun btn--sm" type="button" data-calc>Suggest</button>
+            </div>
+            <p class="field__help calc__out" aria-live="polite">Our guide: about $10 per hour of driving, $5 minimum.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="dialog__foot">
+        <button class="btn btn--ghost" type="button" data-close-dialog>Cancel</button>
+        <button class="btn btn--forest" type="submit">Post ride</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ===== Request-seat dialog ===== -->
+  <dialog class="dialog dialog--sm" id="request-dialog" aria-labelledby="request-title">
+    <form id="request-form" novalidate>
+      <div class="dialog__head">
+        <div>
+          <p class="eyebrow">Request a seat</p>
+          <h2 id="request-title" class="dialog__title">Ride details</h2>
+        </div>
+        <button class="dialog__x" type="button" aria-label="Close" data-close-dialog>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="request__summary"></div>
+      <div class="field">
+        <label for="r-name">Your name <span class="req" aria-hidden="true">*</span></label>
+        <input id="r-name" name="name" autocomplete="name" required>
+        <p class="field__error" id="r-name-err"></p>
+      </div>
+      <div class="field">
+        <label for="r-note">Note to driver <span class="optional">(optional)</span></label>
+        <textarea id="r-note" name="note" rows="3" placeholder="e.g. I'll have one carry-on bag!"></textarea>
+      </div>
+      <div class="dialog__foot">
+        <button class="btn btn--ghost" type="button" data-close-dialog>Cancel</button>
+        <button class="btn btn--forest" type="submit">Send request</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

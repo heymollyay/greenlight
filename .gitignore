@@ -1,0 +1,8 @@
+# Original, full-size source media (web-ready copies live in assets/)
+Media/
+
+# Local editor / tool settings
+.claude/
+
+# macOS
+.DS_Store
