@@ -426,7 +426,7 @@
       const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
       $("#o-date").min = toDateInput(new Date());
       $("#o-date").value = toDateInput(tomorrow);
-      $(".calc__out").innerHTML = `Our guide: about $${CHIP_IN.perHour} per hour of driving, $${CHIP_IN.minimum} minimum.`;
+      $(".calc__out").innerHTML = `Our guide: about $${CHIP_IN.perHour} per hour of driving.`;
       openDialog(offerDlg, b);
     })
   );
