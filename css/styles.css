@@ -1053,3 +1053,29 @@ body.menu-open { overflow: hidden; }
 .updates__status { font-size: .875rem; font-weight: 700; color: var(--error); text-align: center; }
 .updates__status:empty { display: none; }
 .updates__status:not(:empty) { margin-top: var(--s-4); }
+
+/* ---------- demo labels (ride board + dialogs) ---------- */
+.demo-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--sun); color: var(--forest);
+  border: 1.5px solid var(--forest);
+  font-size: .6875rem; letter-spacing: .12em;
+  vertical-align: 1px;
+}
+.demo-note {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin-bottom: var(--s-5);
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: rgba(255, 204, 77, .35);
+  border: 2px dashed var(--forest);
+  color: var(--ink);
+  font-size: .9375rem; line-height: 1.5;
+}
+.demo-note svg { flex: none; margin-top: 1px; color: var(--forest); }
+.demo-note strong { color: var(--forest); }
+.demo-note a { color: var(--forest); font-weight: 700; text-underline-offset: 3px; }
+.demo-note--sm { margin-bottom: 0; padding: 10px 14px; font-size: .875rem; }

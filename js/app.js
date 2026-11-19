@@ -412,7 +412,7 @@
       render();
       const card = $("#ride-" + CSS.escape(r.id) + " .btn");
       if (card) card.focus();
-      toast(`Seat requested! ${r.driver} will confirm your ride to ${r.to}.`);
+      toast(`Demo: seat requested. In the live app, ${r.driver} would confirm your ride to ${r.to}.`);
     }
   });
 
@@ -550,7 +550,7 @@
       card.setAttribute("tabindex", "-1");
       card.focus({ preventScroll: true });
     }
-    toast(`Your ride to ${ride.to} is live on the board!`);
+    toast(`Demo ride to ${ride.to} added. Only you can see it, in this browser.`);
   });
 
   render();
