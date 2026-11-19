@@ -579,9 +579,9 @@
 (() => {
   "use strict";
   const WAITLIST_FORM = {
-    action: "",
-    emailField: "",
-    roleField: "",
+    action: "https://docs.google.com/forms/d/e/1FAIpQLSe82ewhXSWMIfGiJntPu82RA5ykrnMdh6Sjrgp1qLe7R1vO3w/formResponse",
+    emailField: "entry.1739501062",
+    roleField: "entry.1649000673",
   };
 
   const form = document.getElementById("updates-form");
