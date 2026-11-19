@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Yellowtail&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/wordmark.webp" type="image/webp">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=4">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -50,6 +50,7 @@
         <li><a href="#destinations">Destinations</a></li>
         <li><a href="#map">Route map</a></li>
         <li><a href="#rides">Ride board</a></li>
+        <li><a href="#updates">Get updates</a></li>
         <li><a href="#safety">Safety</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#about">About us</a></li>
@@ -336,6 +337,48 @@
       </div>
     </section>
 
+    <!-- ===== Get updates (email sign-up) ===== -->
+    <section class="updates section" id="updates" aria-labelledby="updates-title">
+      <div class="container updates__grid">
+        <div class="updates__copy reveal">
+          <p class="eyebrow">Get updates</p>
+          <h2 id="updates-title" class="h-display">Want in? <span class="script">Get on the list.</span></h2>
+          <p class="lead">GreenLight is launching soon at William &amp; Mary. Drop your email and we'll let you know the moment rides go live. No spam, just the big news.</p>
+        </div>
+
+        <form class="updates__card reveal" id="updates-form" novalidate onsubmit="return false">
+          <div class="updates__fields">
+            <div class="field">
+              <label for="u-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="u-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@wm.edu" required aria-describedby="u-email-err">
+              <p class="field__error" id="u-email-err"></p>
+            </div>
+            <fieldset class="offer__group">
+              <legend>I'd use GreenLight to… <span class="optional">(optional)</span></legend>
+              <div class="radio-chips">
+                <label><input type="radio" name="role" value="Ride"><span>Ride</span></label>
+                <label><input type="radio" name="role" value="Drive"><span>Drive</span></label>
+                <label><input type="radio" name="role" value="Both"><span>Both</span></label>
+              </div>
+            </fieldset>
+            <!-- honeypot: real people never see or fill this -->
+            <div class="updates__hp" aria-hidden="true">
+              <label for="u-website">Website</label>
+              <input id="u-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn btn--forest btn--lg updates__submit" type="submit">Keep me posted</button>
+            <p class="updates__fine">We'll only use your email for GreenLight launch updates.</p>
+          </div>
+          <div class="updates__done" hidden tabindex="-1">
+            <img src="assets/img/car.webp" width="600" height="519" alt="">
+            <h3>You're on the list!</h3>
+            <p>Thanks for the green light. We'll email you as soon as GreenLight launches.</p>
+          </div>
+          <p class="updates__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- ===== Safety ===== -->
     <section class="safety section" id="safety" aria-labelledby="safety-title">
       <div class="container safety__grid">
@@ -470,6 +513,7 @@
         <a href="#how">How it works</a>
         <a href="#destinations">Destinations</a>
         <a href="#rides">Ride board</a>
+        <a href="#updates">Get updates</a>
         <a href="#safety">Safety</a>
         <a href="#faq">FAQ</a>
         <a href="#about">About</a>
@@ -631,6 +675,6 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/app.js" defer></script>
+  <script src="js/app.js?v=4" defer></script>
 </body>
 </html>

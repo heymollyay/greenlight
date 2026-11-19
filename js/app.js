@@ -568,3 +568,87 @@
     reveals.forEach((el) => el.classList.add("is-in"));
   }
 })();
+
+/* ---------- Get updates: email sign-up → Google Form ----------
+   To connect: in your Google Form click ⋮ → "Get pre-filled link",
+   fill both answers, copy the link, and copy its pieces in here:
+     action     → https://docs.google.com/forms/d/e/<FORM ID>/formResponse
+     emailField → the entry.123456789 name used for the email answer
+     roleField  → the entry.987654321 name used for the ride/drive answer
+   The ride/drive question's choices must be exactly: Ride, Drive, Both. */
+(() => {
+  "use strict";
+  const WAITLIST_FORM = {
+    action: "",
+    emailField: "",
+    roleField: "",
+  };
+
+  const form = document.getElementById("updates-form");
+  if (!form) return;
+  const email = form.querySelector("#u-email");
+  const err = form.querySelector("#u-email-err");
+  const status = form.querySelector(".updates__status");
+  const fields = form.querySelector(".updates__fields");
+  const done = form.querySelector(".updates__done");
+  const submit = form.querySelector(".updates__submit");
+  const JOINED_KEY = "greenlight-updates-joined";
+  const isConfigured = () => /^https:\/\/docs\.google\.com\/forms\/.+\/formResponse$/.test(WAITLIST_FORM.action) && WAITLIST_FORM.emailField;
+
+  const showDone = (focus) => {
+    fields.hidden = true;
+    done.hidden = false;
+    status.textContent = "";
+    if (focus) done.focus();
+  };
+  try { if (localStorage.getItem(JOINED_KEY)) showDone(false); } catch (_) { /* storage unavailable */ }
+
+  const validEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  function setError(msg) {
+    err.textContent = msg;
+    msg ? email.setAttribute("aria-invalid", "true") : email.removeAttribute("aria-invalid");
+  }
+  email.addEventListener("blur", () => {
+    if (email.hasAttribute("aria-invalid") && validEmail(email.value.trim())) setError("");
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    const value = email.value.trim();
+    if (!validEmail(value)) {
+      setError(value ? "That email doesn't look right. Check for typos, like a missing @." : "Enter your email to get updates.");
+      email.focus();
+      return;
+    }
+    setError("");
+    if (form.querySelector("#u-website").value) { showDone(true); return; } // bot
+
+    if (!isConfigured()) {
+      status.textContent = "Sign-ups aren't connected yet. Please check back soon!";
+      return;
+    }
+
+    const body = new URLSearchParams();
+    body.append(WAITLIST_FORM.emailField, value);
+    const role = form.querySelector('input[name="role"]:checked');
+    if (role && WAITLIST_FORM.roleField) body.append(WAITLIST_FORM.roleField, role.value);
+
+    submit.setAttribute("aria-busy", "true");
+    submit.disabled = true;
+    submit.textContent = "Sending…";
+    try {
+      // Google Forms doesn't allow reading the response cross-site; a
+      // completed request means Google received it.
+      await fetch(WAITLIST_FORM.action, { method: "POST", mode: "no-cors", body });
+      try { localStorage.setItem(JOINED_KEY, "1"); } catch (_) { /* ignore */ }
+      showDone(true);
+    } catch (_) {
+      status.textContent = "We couldn't send that. Check your connection and try again.";
+    } finally {
+      submit.removeAttribute("aria-busy");
+      submit.disabled = false;
+      submit.textContent = "Keep me posted";
+    }
+  });
+})();

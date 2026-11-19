@@ -1020,3 +1020,36 @@ body.menu-open { overflow: hidden; }
   .js .reveal { opacity: 1; transform: none; }
   .final__car { animation: none; }
 }
+
+/* ---------- get updates (email sign-up) ---------- */
+.menu.is-open li:nth-child(8) { animation-delay: 280ms; }
+.updates { background: var(--forest); color: var(--cream); }
+.updates .h-display { color: var(--cream); }
+.updates .h-display .script { color: var(--sun); }
+.updates .eyebrow { color: var(--sun); }
+.updates .lead { color: var(--on-dark-soft); }
+.updates__grid { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 1024px) { .updates__grid { grid-template-columns: 1fr 1fr; gap: var(--s-9); } }
+.updates__card {
+  position: relative;
+  padding: var(--s-6);
+  border-radius: var(--radius-lg);
+  background: var(--paper); color: var(--ink);
+  border: 3px solid var(--forest);
+  box-shadow: 8px 8px 0 var(--sun);
+}
+@media (max-width: 560px) { .updates__card { padding: var(--s-5) var(--s-4); box-shadow: 6px 6px 0 var(--sun); } }
+.updates__fields { display: grid; gap: var(--s-5); }
+.updates__card .offer__group legend { font-size: .9375rem; }
+.updates__card .offer__group legend .optional { font-family: var(--f-body); text-transform: none; font-size: .875rem; }
+.updates__submit { width: 100%; }
+.updates__submit[aria-busy="true"] { opacity: .7; cursor: progress; }
+.updates__fine { font-size: .8125rem; color: var(--ink-soft); text-align: center; margin-top: calc(var(--s-3) * -1); }
+.updates__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.updates__done { display: grid; justify-items: center; text-align: center; gap: var(--s-3); padding-block: var(--s-4); outline: none; }
+.updates__done img { width: 120px; animation: bob 3.2s ease-in-out infinite; }
+.updates__done h3 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; font-size: 1.75rem; }
+.updates__done p { color: var(--ink-soft); max-width: 36ch; }
+.updates__status { font-size: .875rem; font-weight: 700; color: var(--error); text-align: center; }
+.updates__status:empty { display: none; }
+.updates__status:not(:empty) { margin-top: var(--s-4); }
