@@ -17,7 +17,7 @@ Then open http://localhost:5173. Opening `index.html` directly works too, but th
 | Page content and sections | `index.html` |
 | Colors, fonts, layout | `css/styles.css` (brand tokens are at the top under `:root`) |
 | Menu, destinations, route map, ride board | `js/app.js` |
-| Chip-in guide ($10/hour, $5 minimum) | `CHIP_IN` constant at the top of `js/app.js` |
+| Chip-in guide (~$10 per hour of driving) | `CHIP_IN` constant at the top of `js/app.js` |
 | Sample rides on the board | `seedRides()` in `js/app.js` |
 | Web-ready images and video | `assets/` (generated from the originals in `Media/`) |
 
